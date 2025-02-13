@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>♥</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc, #ff7e5f);
+            overflow: hidden;
+        }
+
+        .heart-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .heart {
+            width: 400px;
+            height: 400px;
+            animation: beat 1.5s infinite, float 6s infinite ease-in-out, glow 2s infinite alternate;
+            filter: drop-shadow(0 0 30px rgba(255, 105, 180, 0.8));
+            z-index: 2;
+        }
+
+        .line {
+            position: absolute;
+            width: 2px;
+            height: 100vh;
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5), transparent);
+            animation: line-grow 3s infinite ease-in-out;
+            transform-origin: bottom;
+        }
+
+        @keyframes beat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                filter: drop-shadow(0 0 30px rgba(255, 105, 180, 0.8));
+            }
+            100% {
+                filter: drop-shadow(0 0 50px rgba(255, 105, 180, 1));
+            }
+        }
+
+        @keyframes line-grow {
+            0% {
+                transform: scaleY(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: scaleY(1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="heart-container">
+        <!-- Линии вокруг сердца -->
+        <div class="line" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="line" style="left: 20%; animation-delay: 0.5s;"></div>
+        <div class="line" style="left: 30%; animation-delay: 1s;"></div>
+        <div class="line" style="left: 40%; animation-delay: 1.5s;"></div>
+        <div class="line" style="left: 60%; animation-delay: 2s;"></div>
+        <div class="line" style="left: 70%; animation-delay: 2.5s;"></div>
+        <div class="line" style="left: 80%; animation-delay: 3s;"></div>
+        <div class="line" style="left: 90%; animation-delay: 3.5s;"></div>
+
+        <!-- Сердечко -->
+        <svg class="heart" viewBox="0 0 32 29.6" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+            c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z" fill="url(#heartGradient)" />
+            <defs>
+                <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#ff7e5f;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#9d50bb;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#6a11cb;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+</body>
+</html>
